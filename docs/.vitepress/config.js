@@ -75,7 +75,7 @@ module.exports = {
         {
           text: '开发',
           link: '/develop/environment/',
-          items:[
+          items: [
             {
               text: '开发环境',
               link: '/develop/environment/',
@@ -87,6 +87,20 @@ module.exports = {
             {
               text: '启动',
               link: '/develop/start/',
+            }
+          ]
+        },
+        {
+          text: '部署',
+          link: '/arrange/environment/',
+          items: [
+            {
+              text: '服务器环境',
+              link: '/arrange/environment/',
+            },
+            {
+              text: '部署与启动',
+              link: '/arrange/build/',
             }
           ]
         }

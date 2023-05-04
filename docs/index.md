@@ -9,14 +9,17 @@ hero:
   name: 房适
   text: 一个开源的房屋租赁管理系统
   tagline: 完全基于JavaScrict的应用程序
-  # image:
-  #   src: /logo.png
+  image:
+    src: /logo.png
   actions:
     - theme: brand
       text: 继续了解
       link: /overview/technologyStack/
     - theme: alt
-      text: 源代码
+      text: github
+      link: https://github.com/vuejs/vitepress
+    - theme: alt
+      text: gitee
       link: https://github.com/vuejs/vitepress
 
 features:
