@@ -119,8 +119,18 @@ mysql> exit
 ``` shell
 systemctl restart mysql
 ```
-现在Windows下可以使用Navicat图形化工具远程连接Ubuntu下的MySQL数据库
-
+现在Windows下可以使用Navicat图形化工具远程连接Ubuntu下的MySQL数据库  
+mysql安装完成后新建一个数据库，数据库名为fangshi_db。
+![新建数据库](/mysql.png)  
+在服务端代码FS-server/app/router.js,打开注释掉的app.model.sync();方法，即可自动创建数据表。
+```javascript
+module.exports = async app => {
+  if (app.config.env === 'local') {
+    // 初始化数据库 { force: true }重置
+    app.model.sync();
+  }
+};
+```
 
 ## 安装Redis
 
@@ -157,6 +167,19 @@ sudo mv minio /usr/local/bin/
 # 运行 /data/minio-data 是 MinIO 实际存放文件的位置，9001 是 console 的端口，9000 是 API Server 的端口。 console 如果不指定端口，每次运行会随机使用一个端口，不方便我们用 Nginx 代理。
 MINIO_ROOT_USER=用户名 MINIO_USER_PASSWORD=密码 nohup minio server /data/minio-data --console-address :9001 --address :9000 > ./minio.log 2>&1 &
 ```
+通过端口9001访问OSS后台管理页面，默认用户名和密码都是：minioadmin。
+![oss](/oss.png)
+ 
+登录完成后点击新建bucket
+![oss](/oss2.png)
+
+bucket名称为：filebucket
+![oss](/oss3.png)
+
+完成后点击设置，修改访问权限为public
+![oss](/oss4.png)
+
+
 ## 安装web服务器Nginx
 
 ```shell

@@ -8,12 +8,38 @@ title: 前端
 技术栈使用vue全家桶，vue3+TS+vite开发模式。  
 
 
-#### UI框架使用字节跳动出品的[arco.design](https://arco.design/)的vue版本
+### UI框架使用字节跳动出品的[arco.design](https://arco.design/)的vue版本
 ![An image](/acro.png)
 arco.design不仅仅是一款ui框架，他具有完备的企业级设计系统，包含开发设计于一身。在使用上也有自己的风格，一直以来element-ui都占据vue生态ui框架的首选地位。arco.design不是一个平替产品，他的使用思想经过重新构建，有着更高效的设计。
 
 ## 租客及房东小程序
-#### 租客及房东小程序均使用[uni-app](https://uniapp.dcloud.net.cn/)开发  
+### 租客及房东小程序均使用[uni-app](https://uniapp.dcloud.net.cn/)开发  
 ![An image](/uniapp.jpeg)
 uni-app 是一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
+
 对比原生小程序的语法，uni-app还是比较适合vue开发者，原生语法确实有点反人类，让人很难适应。多端发布更是一种优势。
+
+### 小程序ui框架使用[uview](https://www.uviewui.com/)
+![uview](/uview.png)
+可以很负责任的说：uview是uniapp首选ui框架，在uniapp官方[插件市场](https://ext.dcloud.net.cn/)上都有着很高的热度，一度热度超过官方。现在的开发都达成了一致：不重复造轮子，能使用开源框架解决的绝不自己写。但是ui框架良莠不齐，甚至有大厂搞出颇为诟病的kpi项目，后期基本不维护，使得开发者一但入坑，就很难脱身，项目中期替换ui框架无疑是灭顶之灾，所以在项目开始就选择一款合适的ui框架很重要。
+
+uniapp官方ui框架和物料市场提供的ui组件都存在几个问题：  
+
+1、设计不够美观，且难以修改。  
+2、样式不统一，整个应用像是一个缝合怪。  
+3、使用逻辑混乱，例如在数据双向绑定方面。
+4、功能不齐全，无法满足全部开发需求。
+5、代码健壮性很差，使用后控制台无端一堆warning。  
+
+uview很好的解决了以上问题，也是uniapp社区开发者都很喜欢他的原因。uview也存在他的问题，由于样式隔离，当你想要修改样式的时候就会变得很麻烦，你必须在css选择器的前面加上::deep，才能修改。例如你要给按钮加上一个上间距：
+```css
+.u-button {
+	margin-top: 20px;
+}
+```
+上面的代码是不起作用的，你必须这样写：
+```css
+::v-deep .u-button {
+	margin-top: 20px;
+}
+```

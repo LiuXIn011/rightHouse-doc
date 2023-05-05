@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 继续了解
-      link: /overview/technologyStack/
+      link: /overview/
     - theme: alt
       text: github
       link: https://github.com/vuejs/vitepress

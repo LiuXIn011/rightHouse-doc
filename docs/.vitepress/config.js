@@ -17,19 +17,6 @@ module.exports = {
     '@vuepress/back-to-top',
     '@vuepress/medium-zoom',
     '@vuepress/nprogress',
-    [
-      '@vuepress/plugin-search',
-      {
-        locales: {
-          '/': {
-            placeholder: 'Search',
-          },
-          '/zh/': {
-            placeholder: '搜索',
-          },
-        },
-      },
-    ],
   ],
   // 主题配置
   themeConfig: {
@@ -40,8 +27,9 @@ module.exports = {
     smoothScroll: true,
     // 导航栏配置
     nav: [
-      { text: '概览', link: '/overview/technologyStack/' },
+      { text: '概览', link: '/overview/' },
       { text: '开发', link: '/develop/environment/' },
+      { text: '部署', link: '/arrange/' },
       { text: 'Github', link: 'https://github.com/vuejs/vitepress' },
       { text: 'Gitee', link: 'https://github.com/vuejs/vitepress' },
     ],
@@ -49,6 +37,7 @@ module.exports = {
       '/': [
         {
           text: '概览',
+          link: '/overview/',
           items: [
             {
               text: '技术栈',
@@ -69,12 +58,16 @@ module.exports = {
             {
               text: '需要准备的',
               link: '/overview/needs/',
+            },
+            {
+              text: '二期规划',
+              link: '/overview/expectation/',
             }
           ],
         },
         {
           text: '开发',
-          link: '/develop/environment/',
+          // link: '/develop/environment/',
           items: [
             {
               text: '开发环境',
@@ -92,7 +85,7 @@ module.exports = {
         },
         {
           text: '部署',
-          link: '/arrange/environment/',
+          link: '/arrange/',
           items: [
             {
               text: '服务器环境',
@@ -101,6 +94,10 @@ module.exports = {
             {
               text: '部署与启动',
               link: '/arrange/build/',
+            },
+            {
+              text: '数据库备份',
+              link: '/arrange/databaseBackup/',
             }
           ]
         }
