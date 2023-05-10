@@ -34,7 +34,7 @@ DB_PASS="XXXXXX"
 #数据库地址
 DB_HOST="xxx.xxx.xxx.xxx"
 #要备份的数据库名
-DB_NAME="fangshi_db"
+DB_NAME="right_house_db"
 #日期
 DATE=`date +%F`
 #文件保存的路径

@@ -2,10 +2,10 @@
 title: 文件目录
 ---
 ## 服务端
-根目录：/FS-server
+根目录：/RH-server
 
 ```bash
-/FS-server
+/RH-server
 ├── package.json
 ├── app
 │   ├── controller
@@ -24,12 +24,12 @@ title: 文件目录
 为了规范目录，所有的路由分模块存放在routerModules文件夹内
 
 ## 后台管理系统
-根目录：/FS-admin
+根目录：/RH-admin
 
 ## 租客端小程序
-根目录：/FS-tenant  
+根目录：/RH-tenant  
 使用分包加载，具体目录参见pages.json
 
 ## 房东端小程序
-根目录：/FS-landlord  
+根目录：/RH-landlord  
 使用分包加载，具体目录参见pages.json

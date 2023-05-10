@@ -3,25 +3,19 @@ title: 打包部署
 ---
 部署前请确保已经完整阅读过[配置](/develop/options/)模块，并且已经将相关配置更改到生产环境地址。
 ## 服务端部署
-框架内置了 egg-cluster 来启动 Master 进程，Master 有足够的稳定性，不再需要使用 pm2 等进程守护模块。  
-同时，框架也提供了 egg-scripts 来支持线上环境的运行和停止。  
-首先，我们需要把 egg-scripts 模块作为 dependencies 引入：  
-
-```shell
-npm i egg-scripts --save
-```
-添加 npm scripts 到 package.json：
-
-```json
-{
-  "scripts": {
-    "start": "egg-scripts start --daemon",
-    "stop": "egg-scripts stop"
+首先在服务端代码FS-server/app/router.js,打开注释掉的app.model.sync();方法，即可自动创建数据表。（数据库是需要手动创建的）
+```javascript
+module.exports = async app => {
+  if (app.config.env === 'local') {
+    // 初始化数据库 { force: true }重置
+    app.model.sync();
   }
-}
+};
 ```
-这样我们就可以通过 npm start 和 npm stop 命令启动或停止应用。
-根据/fs-server/config.default.js的配置
+框架内置了 egg-cluster 来启动 Master 进程，Master 有足够的稳定性，不再需要使用 pm2 等进程守护模块。  
+同时，框架也安装了 egg-scripts 来支持线上环境的运行和停止。  
+这样我们就可以通过 npm start 和 npm stop 命令启动或停止应用。  
+根据RH-server/config.default.js的配置
 ```javascript
 config.cluster = {
   listen: {
@@ -60,7 +54,7 @@ exports.alinode = {
 ```shell
 npm run build
 ```
-将dist上传至服务器路径下，路径你可以自定义，本次我们放在/opt/fs-admin目录下。  
+将dist上传至服务器路径下，路径你可以自定义，本次我们放在/opt/RH-admin目录下。  
 修改服务器配置,通过端口9527访问。
 
 ```shell
@@ -72,7 +66,7 @@ vi /etc/nginx/sites-available/default
 ```
 server {
   listen 9527;
-  root /opt/fs-admin;
+  root /opt/RH-admin;
   index index.html index.htm index.nginx-debian.html;
   location / {
     try_files $uri $uri/ /index.html;

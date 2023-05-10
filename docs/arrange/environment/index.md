@@ -120,17 +120,9 @@ mysql> exit
 systemctl restart mysql
 ```
 现在Windows下可以使用Navicat图形化工具远程连接Ubuntu下的MySQL数据库  
-mysql安装完成后新建一个数据库，数据库名为fangshi_db。
+mysql安装完成后新建一个数据库，数据库名为right_house_db。
 ![新建数据库](/mysql.png)  
-在服务端代码FS-server/app/router.js,打开注释掉的app.model.sync();方法，即可自动创建数据表。
-```javascript
-module.exports = async app => {
-  if (app.config.env === 'local') {
-    // 初始化数据库 { force: true }重置
-    app.model.sync();
-  }
-};
-```
+
 
 ## 安装Redis
 

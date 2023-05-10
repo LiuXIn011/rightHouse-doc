@@ -60,7 +60,7 @@ module.exports = {
               link: '/overview/needs/',
             },
             {
-              text: '二期规划',
+              text: '后续规划',
               link: '/overview/expectation/',
             }
           ],

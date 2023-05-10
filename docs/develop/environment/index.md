@@ -13,7 +13,7 @@ title: 开发环境
 [推荐一个博主的安装教程](https://blog.csdn.net/Zhangguohao666/article/details/105314085)  
 
 
-mysql安装完成后新建一个数据库，数据库名为fangshi_db。
+mysql安装完成后新建一个数据库，数据库名为right_house_db。
 ![新建数据库](/mysql.png)  
 在服务端代码FS-server/app/router.js,打开注释掉的app.model.sync();方法，即可自动创建数据表。
 ```javascript
