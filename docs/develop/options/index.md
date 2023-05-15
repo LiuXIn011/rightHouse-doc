@@ -10,11 +10,12 @@ title: 配置
 VITE_BASE_URL是接口访问地址配置，即服务端的访问地址。
 ## 租客小程序配置
 #### 打开config.js文件
-baseUrl 是接口访问地址配置，即服务端的访问地址。
+baseUrl 是接口访问地址配置，即服务端的访问地址。需要使用https域名，且配置在微信公众平台的白名单内  
+mapKey 是高德地图key配置。
 #### 打开manifest.json文件 
 uniapp的appid配置   微信小程序appid配置
 ## 房东小程序配置
 #### 打开config.js文件
-baseUrl 是接口访问地址配置，即服务端的访问地址。
+baseUrl 是接口访问地址配置，即服务端的访问地址。需要使用https域名，且配置在微信公众平台的白名单内
 #### 打开manifest.json文件 
 uniapp的appid配置   微信小程序appid配置
