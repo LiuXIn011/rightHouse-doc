@@ -30,8 +30,8 @@ module.exports = {
       { text: '概览', link: '/overview/' },
       { text: '开发', link: '/develop/environment/' },
       { text: '部署', link: '/arrange/' },
-      { text: 'Github', link: 'https://github.com/vuejs/vitepress' },
-      { text: 'Gitee', link: 'https://github.com/vuejs/vitepress' },
+      { text: 'Github', link: 'https://github.com/LiuXIn011/rightHouse' },
+      { text: 'Gitee', link: 'https://gitee.com/liuxin0128/right-house' },
     ],
     sidebar: {
       '/': [
@@ -67,7 +67,7 @@ module.exports = {
         },
         {
           text: '开发',
-          // link: '/develop/environment/',
+          link: '/develop/',
           items: [
             {
               text: '开发环境',

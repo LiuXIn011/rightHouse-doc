@@ -3,7 +3,7 @@ title: 打包部署
 ---
 部署前请确保已经完整阅读过[配置](/develop/options/)模块，并且已经将相关配置更改到生产环境地址。
 ## 服务端部署
-首先在服务端代码FS-server/app/router.js,打开注释掉的app.model.sync();方法，即可自动创建数据表。（数据库是需要手动创建的）
+首先在服务端代码FS-server/app/router.js,打开注释掉的app.model.sync();方法，即可自动创建数据表（数据库是需要手动创建的）。添加参数{ force: true }，即可重置数据库（数据会重置，表会清空。）。
 ```javascript
 module.exports = async app => {
   if (app.config.env === 'local') {

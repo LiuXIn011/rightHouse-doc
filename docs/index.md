@@ -16,11 +16,11 @@ hero:
       text: 继续了解
       link: /overview/
     - theme: alt
-      text: github
-      link: https://github.com/vuejs/vitepress
+      text: GitHub
+      link: https://github.com/LiuXIn011/rightHouse
     - theme: alt
-      text: gitee
-      link: https://github.com/vuejs/vitepress
+      text: Gitee
+      link: https://gitee.com/liuxin0128/right-house
 
 features:
   - icon: 💯
