@@ -5,6 +5,7 @@ module.exports = {
   description: '房适',
   // 打包目录
   dest: './dist',
+  lang: 'zh-CN',
   base: '/',
   // 头部head
   head: [
@@ -20,11 +21,18 @@ module.exports = {
   ],
   // 主题配置
   themeConfig: {
+    logo: '/logo.png',
     // socialLinks: [
     //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
     // ],
     // 启动页面丝滑滚动
     smoothScroll: true,
+    outline: {
+      label: '本页目录'
+    },
+    returnToTopLabel:'↑回到顶部',
+    sidebarMenuLabel:' ',
+    darkModeSwitchLabel:'主题',
     // 导航栏配置
     nav: [
       { text: '概览', link: '/overview/' },
