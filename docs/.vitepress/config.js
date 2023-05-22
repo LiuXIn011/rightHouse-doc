@@ -60,7 +60,7 @@ module.exports = {
               link: '/overview/files/',
             },
             {
-              text: '操作逻辑',
+              text: '系统演示',
               link: '/overview/operate/',
             },
             {
