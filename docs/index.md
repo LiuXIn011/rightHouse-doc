@@ -36,3 +36,13 @@ features:
     title: 完全的前后端分离
     details: 后端是跟数据库跟服务器打交道的，前端是跟浏览器打交道的，各司其职。
 ---
+<script setup>
+import axios from 'axios'
+  axios.get("http://8.130.92.178:7001/api/adminUser/getDocInfo")
+</script>
+
+<!-- <p align="center" style="margin-top:50px;">
+  <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+    <img width="300" src="/youpai.png"/>
+  </a>
+</p> -->

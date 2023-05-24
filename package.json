@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@vuepress/plugin-search": "^1.9.9",
+    "axios": "^1.4.0",
     "stylus": "^0.59.0",
     "stylus-loader": "^7.1.0"
   }

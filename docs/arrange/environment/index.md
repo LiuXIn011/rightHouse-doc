@@ -40,62 +40,57 @@ mysql -u root -p
 ``` shell
   mysql_secure_installation
 ```
+
+#### 如果在这一步有报错，则需要配置密码。
+```shell
+# 可能的报错信息：
+# Re-enter new password: 
+#  ... Failed! Error: SET PASSWORD has no significance for user 'root'@'localhost' as the authentication method used doesn't store # authentication data in the MySQL server. Please consider using ALTER USER instead if you want to change authentication parameters.
+
+# 去手动配置密码
+mysql # 进入mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by '你的密码';
+# 看到Query OK, 0 rows affected (0.02 sec)即为成功，然后继续mysql_secure_installation初始化
+```
+
 #### 对于上述数据库初始化的操作步骤，输出信息如下
 ``` shell
 Securing the MySQL server deployment.
-
 Connecting to MySQL using a blank password.
-
 VALIDATE PASSWORD PLUGIN can be used to test passwords
 and improve security. It checks the strength of password
 and allows the users to set only those passwords which are
 secure enough. Would you like to setup VALIDATE PASSWORD plugin?    # 要安装验证密码插件吗?
-
 Press y|Y for Yes, any other key for No: N    # 这里我选择N
 Please set the password for root here.
-
 New password:   # 输入要为root管理员设置的数据库密码
-
 Re-enter new password:   # 再次输入密码
-
-
 By default, a MySQL installation has an anonymous user,
 allowing anyone to log into MySQL without having to have
 a user account created for them. This is intended only for
 testing, and to make the installation go a bit smoother.
 You should remove them before moving into a production
 environment.
-
 Remove anonymous users? (Press y|Y for Yes, any other key for No) : y     # 删除匿名账户
 Success.
-
-
 Normally, root should only be allowed to connect from
 'localhost'. This ensures that someone cannot guess at
 the root password from the network.
-
 Disallow root login remotely? (Press y|Y for Yes, any other key for No) : N    # 禁止root管理员从远程登录，这里我没有禁止
-
 ... skipping.
 By default, MySQL comes with a database named 'test' that
 anyone can access. This is also intended only for testing,
 and should be removed before moving into a production
 environment.
-
-
 Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y   # 删除test数据库并取消对它的访问权限
 - Dropping test database...
 Success.
-
 - Removing privileges on test database...
 Success.
-
 Reloading the privilege tables will ensure that all changes
 made so far will take effect immediately.
-
 Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y   # 刷新授权表，让初始化后的设定立即生效
 Success.
-
 All done!
 ```
 #### 检查mysql服务状态，显示running即为安装成功。
@@ -133,8 +128,12 @@ sudo apt update
 sudo apt install redis-server
 
 # 配置
-#设置密码：修改配置文件里的requirepass,把注释关掉,然后后面改为你想设置的密码；supervised 设置为 systemd。
+
 sudo vim /etc/redis/redis.conf
+# 设置密码：修改配置文件里的requirepass,把注释关掉,然后后面改为你想设置的密码；
+# supervised 设置为 systemd。
+# 配置远程连接，将 bind 127.0.0.1 ::1 改为 bind 0.0.0.0
+
 #修改配置需要重启
 sudo service redis restart  # 重新加载Redis服务文件
 sudo systemctl status redis # 查看 Redis 的运行状态
@@ -144,20 +143,19 @@ sudo service redis start  # 启动
 sudo service redis stop  # 关闭
 sudo service redis restart  # 重启
 
-# 配置远程连接 
-sudo vi /etc/redis/redis.conf
-# 将 bind 127.0.0.1 ::1 改为 bind 0.0.0.0
+
 ```
 
 ## 安装对象存储minio
 
 ```shell
-# 安装：
+# 创建一个工作目录
+mkdir /opt/minio
+cd /opt/mkdir
+# 获取安装包
 wget https://dl.min.io/server/minio/release/linux-amd64/minio
-chmod +x minio
-sudo mv minio /usr/local/bin/
-# 运行 /data/minio-data 是 MinIO 实际存放文件的位置，9001 是 console 的端口，9000 是 API Server 的端口。 console 如果不指定端口，每次运行会随机使用一个端口，不方便我们用 Nginx 代理。
-MINIO_ROOT_USER=用户名 MINIO_USER_PASSWORD=密码 nohup minio server /data/minio-data --console-address :9001 --address :9000 > ./minio.log 2>&1 &
+# 启动
+/opt/minio/minio server /opt/minio/file --console-address :9001 --address :9000
 ```
 通过端口9001访问OSS后台管理页面，默认用户名和密码都是：minioadmin。
 ![oss](/oss.png)
@@ -170,8 +168,48 @@ bucket名称为：filebucket
 
 完成后点击设置，修改访问权限为public
 ![oss](/oss4.png)
+去到access-keys菜单生成点击Create Access Key生成Access Key
+![oss](/oss5.png)
+将生成的Access Key和Secret Key保存好，要用到服务端配置内
+![oss](/oss6.png)
 
+将minio添加到开机自启
+```shell
+# 移动到/etc/init.d/
+cd /etc/init.d/
+# 新建个shell脚本文件并进入编辑
+touch powerUp.sh
+vim powerUp.sh
+```
+写入如下脚本并保存
+``` shell
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: starter
+# Required-Start: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start starter
+# Description: start powerUp
+### END INIT INFO
+ nohup /opt/minio/minio server /opt/minio/file --console-address :9001 --address :9000
+ exit 0
+```
 
+设置权限
+```shell
+sudo chmod 755 powerUp.sh
+```
+
+设置开机启动
+``` shell
+# 后面90数字是你设置的启动序号，越大级别越低，执行越晚
+update-rc.d powerUp.sh defaults 90
+# 取消开机启动命令
+update-rc.d -f powerUp.sh remove
+```
+以后有需要开机执行的命令都可以统一添加到powerUp.sh内
 ## 安装web服务器Nginx
 
 ```shell
