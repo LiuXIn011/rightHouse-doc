@@ -24,6 +24,10 @@ module.exports = async app => {
   }
 };
 ```
+数据库创建完成后，需要手动添加一个后台管理系统管理员账户。  
+打开admin_user表，填入id、phone、password即可。
+![新建数据库](/mysql2.png)  
+
 ## 数据库表结构
 |  表名   | 备注  | 
 |  ----  | ----  |

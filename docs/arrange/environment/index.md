@@ -15,6 +15,14 @@ node -v
 npm -v
 #显示对应版本号即为安装成功
 ```
+如果发现node的版本和最新版差距很大，需要使用N更新node
+``` shell
+npm install -g n
+n stable
+#再检查版本
+node -v
+npm -v
+```
 ## 安装MySQL数据库
 ``` shell
 # 查看有没有安装MySQL：

@@ -16,7 +16,25 @@ uni-app比较随意，直接注册账户即可获取。
 ![uni-app-id](/uni-app-id.png)
 ## 阿里云短信服务（非必须）
 购买[阿里云短信服务](https://www.aliyun.com/product/sms?spm=5176.28055625.J_3207526240.80.e939154ahCLHmB)，注册短信SignName，注册需要的短信模板，获取阿里云accessKey，用于验证码发送、交租提醒、维修提醒、入住提醒等功能。详情参见[服务端配置](/develop/options/)。  
-如果你不配置这些，将不会发送短信，也不会影响到业务。
+如果你不配置这些，将不会发送短信，也不会影响到业务。  
+  
+  
+如果你不想使用阿里云短信服务，需要关闭插件。
+```javascript
+// 在/RH-server/config/plugin.js找到sms
+
+exports.sms = {
+  enable: true,
+  package: 'egg-sms'
+};
+
+// 将sms配置注释掉
+// exports.sms = {
+//   enable: true,
+//   package: 'egg-sms'
+// };
+```
+
 ## 开发工具
 [vscode](https://code.visualstudio.com/)、[微信开发者工具](https://open.weixin.qq.com/)、[HbuilderX](https://www.dcloud.io/hbuilderx.html)
 
