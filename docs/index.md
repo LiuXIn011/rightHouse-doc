@@ -38,7 +38,7 @@ features:
 ---
 <script setup>
 import axios from 'axios'
-  axios.get("http://8.130.92.178:7001/api/adminUser/getDocInfo")
+  axios.get("https://server.right-house.love/api/adminUser/getDocInfo?type=1")
 </script>
 
 <!-- <p align="center" style="margin-top:50px;">
