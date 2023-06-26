@@ -33,11 +33,19 @@ module.exports = {
     returnToTopLabel:'↑回到顶部',
     sidebarMenuLabel:' ',
     darkModeSwitchLabel:'主题',
+    footer: {
+      message: '豫ICP备<a target="_blank" href="https://beian.miit.gov.cn/">2023012476</a>号',
+      copyright: 'Copyright © 2023-present <a target="_blank" href="https://github.com/LiuXIn011">LiuXin</a>'
+    },
+    editLink: {
+      pattern: 'https://github.com/LiuXIn011/rightHouse-doc/blob/master/docs/:path'
+    },
     // 导航栏配置
     nav: [
       { text: '概览', link: '/overview/' },
       { text: '开发', link: '/develop/environment/' },
       { text: '部署', link: '/arrange/' },
+      { text: '赞赏', link: '/appreciate/' },
       { text: 'Github', link: 'https://github.com/LiuXIn011/rightHouse' },
       { text: 'Gitee', link: 'https://gitee.com/liuxin0128/right-house' },
     ],
@@ -108,6 +116,10 @@ module.exports = {
               link: '/arrange/databaseBackup/',
             }
           ]
+        },
+        {
+          text: '赞赏',
+          link: '/appreciate/'
         }
       ]
     },

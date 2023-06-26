@@ -38,11 +38,11 @@ features:
 ---
 <script setup>
 import axios from 'axios'
-  axios.get("https://server.right-house.love/api/adminUser/getDocInfo?type=1")
+  axios.get("https://server.right-house.love/api/docView/getDocInfo?type=1")
 </script>
 
-<!-- <p align="center" style="margin-top:50px;">
+<p align="center" style="margin-top:50px;">
   <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
     <img width="300" src="/youpai.png"/>
   </a>
-</p> -->
+</p>
