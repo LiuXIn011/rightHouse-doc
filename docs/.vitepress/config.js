@@ -100,7 +100,7 @@ module.exports = {
           ]
         },
         {
-          text: '部署',
+          text: '手动部署',
           link: '/arrange/',
           items: [
             {
@@ -114,6 +114,20 @@ module.exports = {
             {
               text: '数据库备份',
               link: '/arrange/databaseBackup/',
+            }
+          ]
+        },
+        {
+          text: 'Docker部署',
+          link: '/docker/',
+          items:[
+            {
+              text:"Compose部署",
+              link:'/docker/dockerCompose/'
+            },
+            {
+              text:"Compose常见问题",
+              link:'/docker/dockerCompose/problem'
             }
           ]
         },

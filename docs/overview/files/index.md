@@ -25,6 +25,31 @@ title: 文件目录
 
 ## 后台管理系统
 根目录：/RH-admin
+```bash
+/RH-admin
+├─api
+├─assets
+│  ├─img
+│  │  └─login
+│  └─lottiefiles
+├─components
+│  ├─chart
+│  └─headForm
+├─layout
+│  └─components
+├─router
+├─stores
+├─utils
+└─views
+    ├─comments
+    ├─home
+    ├─house
+    ├─landlord
+    ├─login
+    ├─not-found
+    ├─settings
+    └─tenants
+```
 
 ## 租客端小程序
 根目录：/RH-tenant  
