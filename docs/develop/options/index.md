@@ -15,6 +15,7 @@ title: 配置
 |OSS端口|minio.port|9000||
 |OSS accessKey|minio.accessKey|right_house_minio|同样用于登录oss后台|
 |OSS secretKey|minio.secretKey|right_house_minio_980128|同样用于登录oss后台|
+|OSS文件访问域名|minio.urldomain||端口为minio的Api端口|
 |OSS存储桶名称|minio.bucketName|filebucket||
 |Mysql地址|config.sequelize.host|localhost||
 |Mysql端口|config.sequelize.port|3306||

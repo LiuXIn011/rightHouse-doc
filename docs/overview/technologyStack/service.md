@@ -20,10 +20,8 @@ egg-sequelize是对Sequelize的二次继承，约定egg插件风格来使用sequ
 在手工编写好model后，在服务端代码FS-server/app/router.js,打开注释掉的app.model.sync();方法，即可自动创建数据表。添加参数{ force: true }，即可重置数据库（数据会重置，表会清空。）。
 ```javascript
 module.exports = async app => {
-  if (app.config.env === 'local') {
-    // 初始化数据库 { force: true }重置
-    app.model.sync();
-  }
+  // 初始化数据库 { force: true }重置
+  app.model.sync();
 };
   
 ```

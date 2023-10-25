@@ -40,6 +40,14 @@ module.exports = {
     editLink: {
       pattern: 'https://github.com/LiuXIn011/rightHouse-doc/blob/master/docs/:path'
     },
+    search: {
+      provider: 'local',
+      // options: {
+      //   appId: '8J64VVRP8K',
+      //   apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
+      //   indexName: 'vitepress'
+      // }
+    },
     // 导航栏配置
     nav: [
       { text: '概览', link: '/overview/' },

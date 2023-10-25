@@ -165,23 +165,23 @@ wget https://dl.min.io/server/minio/release/linux-amd64/minio
 # 启动
 /opt/minio/minio server /opt/minio/file --console-address :9001 --address :9000
 ```
-通过端口9001访问OSS后台管理页面，默认用户名和密码都是：minioadmin。
+#### 通过端口9001访问OSS后台管理页面，默认用户名和密码都是：minioadmin。
 ![oss](/oss.png)
  
-登录完成后点击新建bucket
+#### 登录完成后点击新建bucket
 ![oss](/oss2.png)
 
-bucket名称为：filebucket
+#### bucket名称为：filebucket
 ![oss](/oss3.png)
 
-完成后点击设置，修改访问权限为public
+#### 完成后点击设置，修改访问权限为public
 ![oss](/oss4.png)
-去到access-keys菜单生成点击Create Access Key生成Access Key
+#### 去到access-keys菜单生成点击Create Access Key生成Access Key
 ![oss](/oss5.png)
-将生成的Access Key和Secret Key保存好，要用到服务端配置内
+#### 将生成的Access Key和Secret Key保存好，要用到服务端配置内
 ![oss](/oss6.png)
 
-将minio添加到开机自启
+#### 将minio添加到开机自启
 ```shell
 # 移动到/etc/init.d/
 cd /etc/init.d/
@@ -189,7 +189,7 @@ cd /etc/init.d/
 touch powerUp.sh
 vim powerUp.sh
 ```
-写入如下脚本并保存
+#### 写入如下脚本并保存
 ``` shell
 #!/bin/sh
 ### BEGIN INIT INFO
@@ -205,19 +205,19 @@ vim powerUp.sh
  exit 0
 ```
 
-设置权限
+#### 设置权限
 ```shell
 sudo chmod 755 powerUp.sh
 ```
 
-设置开机启动
+#### 设置开机启动
 ``` shell
 # 后面90数字是你设置的启动序号，越大级别越低，执行越晚
 update-rc.d powerUp.sh defaults 90
 # 取消开机启动命令
 update-rc.d -f powerUp.sh remove
 ```
-以后有需要开机执行的命令都可以统一添加到powerUp.sh内
+#### 以后有需要开机执行的命令都可以统一添加到powerUp.sh内
 ## 安装web服务器Nginx
 
 ```shell

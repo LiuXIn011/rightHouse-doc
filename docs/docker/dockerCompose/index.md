@@ -49,3 +49,15 @@ docker ps
 输出所有容器，其中name为：right-house-server、right-house-admin、right-house-redis、right-house-mysql、right-house-minio的5个容器正常启动，且状态为UP
 ![compose](/docker-ps.png)  
 访问你的ip+端口8088，即可访问后台管理系统，默认用户名：admin，默认密码：admin，可以正常登录即为部署成功
+## 创建OSS存储bucket
+#### 通过端口9001访问OSS后台管理页面，用户名：right_house_minio   密码：right_house_minio_980128
+![oss](/oss.png)
+ 
+#### 登录完成后点击新建bucket
+![oss](/oss2.png)
+
+#### bucket名称为：filebucket
+![oss](/oss3.png)
+
+#### 完成后点击设置，修改访问权限为public
+![oss](/oss4.png)
