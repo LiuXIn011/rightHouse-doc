@@ -1,8 +1,8 @@
 ---
 layout: home
 
-title: 房适
-titleTemplate: 一个开源的房屋租赁管理系统
+# title: 房适
+# titleTemplate: 一个开源的房屋租赁管理系统
 
 
 hero:

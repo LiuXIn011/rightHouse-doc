@@ -1,6 +1,6 @@
 module.exports = {
   // 网站标题
-  title: '房适',
+  title: '个人软件使用文档',
   // 网站描述
   description: '房适',
   // 打包目录
@@ -35,7 +35,7 @@ module.exports = {
     darkModeSwitchLabel:'主题',
     footer: {
       message: '豫ICP备<a target="_blank" href="https://beian.miit.gov.cn/">2023012476</a>号',
-      copyright: 'Copyright © 2023-present <a target="_blank" href="https://github.com/LiuXIn011">LiuXin</a>'
+      // copyright: 'Copyright © 2023-present <a target="_blank" href="https://github.com/LiuXIn011">LiuXin</a>'
     },
     editLink: {
       pattern: 'https://github.com/LiuXIn011/rightHouse-doc/blob/master/docs/:path'
@@ -53,7 +53,7 @@ module.exports = {
       { text: '概览', link: '/overview/' },
       { text: '开发', link: '/develop/environment/' },
       { text: '部署', link: '/arrange/' },
-      { text: '赞赏', link: '/appreciate/' },
+      // { text: '赞赏', link: '/appreciate/' },
       { text: 'Github', link: 'https://github.com/LiuXIn011/rightHouse' },
       { text: 'Gitee', link: 'https://gitee.com/liuxin0128/right-house' },
     ],
@@ -139,10 +139,10 @@ module.exports = {
             }
           ]
         },
-        {
-          text: '赞赏',
-          link: '/appreciate/'
-        }
+        // {
+        //   text: '赞赏',
+        //   link: '/appreciate/'
+        // }
       ]
     },
   }
